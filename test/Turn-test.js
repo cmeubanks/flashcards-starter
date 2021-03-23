@@ -1,0 +1,48 @@
+const chai = require('chai');
+const expect = chai.expect;
+
+const Turn = require('../src/Turn');
+const Card = require('../src/Card');
+
+describe('Turn', function() {
+
+  it('should be a function', function() {
+    const turn = new Turn();
+    expect(Turn).to.be.a('function');
+  });
+
+  it('should be an instance of Turn', function() {
+    const turn = new Turn();
+    expect(turn).to.be.an.instanceof(Turn);
+  });
+
+  it('should store a guess', function() {
+    const currentCard = new Card();
+    const turn = new Turn('object', currentCard);
+    expect(turn.guess).to.be.a('string');
+    expect(turn.guess).to.equal('object');
+  });
+
+  it('should store the current card in play', function() {
+    const currentCard = new Card();
+    const turn = new Turn('object', currentCard);
+    expect(turn.currentCard).to.be.an('object');
+    expect(turn.currentCard).to.equal(currentCard);
+  });
+
+  it('should return the user guess', function() {
+    const currentCard = new Card();
+    const turn = new Turn('object', currentCard);
+    const guess = turn.returnGuess();
+    expect(guess).to.be.a('string');
+    expect(guess).to.equal('object');
+  });
+
+  it('should return the current card in play', function() {
+    const currentCard = new Card();
+    const turn = new Turn('object', currentCard);
+    const card = turn.returnCard();
+    expect(card).to.be.an('object');
+    expect(card).to.equal(currentCard);
+  });
+})
