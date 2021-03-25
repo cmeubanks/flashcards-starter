@@ -6,6 +6,7 @@ class Round {
     this.currentCard = this.deck.card[0];
     this.turnCount = 0;
     this.incorrectGuesses = [];
+    this.correctGuesses = 0;
 
   }
 
@@ -19,10 +20,19 @@ class Round {
     //gives feedback
     // and stores ids of incorrect guesses
 
-    // const turn = new Turn(guess, this.currentCard)
-    // this.turnCount++
-    // if(this.turnCount)
+    const turn = new Turn(guess, this.currentCard)
+    this.turnCount+=1
 
+    if (turn.evaluateGuess()) {
+      this.correctGuesses+=1
+      let feedback = turn.giveFeedback();
+    } else {
+      this.incorrectGuesses.push(this.currentCard.id);
+      let feedback = turn.giveFeedback();
+    }
+
+    this.currentCard = this.deck.card[this.turnCount];
+    return feedback;
   }
 }
 
