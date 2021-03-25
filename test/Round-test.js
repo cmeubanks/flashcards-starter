@@ -60,6 +60,10 @@ describe ('Round', function() {
     expect(round.incorrectGuesses.length).to.equal(1);
   })
 
+  it('should update the current card for a new turn', function() {
+    round.takeTurn("object");
+    expect(round.currentCard.id).to.equal(2)
+  })
 
 
   // it('should create a new Turn instance when a user takes a turn', function() {

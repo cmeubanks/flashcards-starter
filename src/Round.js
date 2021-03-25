@@ -15,11 +15,6 @@ class Round {
   }
 
   takeTurn(guess) {
-    //updates turn turnCount
-    //evalutes guesses
-    //gives feedback
-    // and stores ids of incorrect guesses
-
     const turn = new Turn(guess, this.currentCard)
     let feedback
     this.turnCount+=1
