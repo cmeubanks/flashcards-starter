@@ -17,7 +17,7 @@ describe('Game', function() {
 
   it('should have a property to keep track of current round', function() {
     const game = new Game();
-    expect(game.currentRound).to.equal(0);
+    expect(game.currentRound).to.equal(undefined);
   });
   //
   // it('should add card data to a new instance of the card', function() {
