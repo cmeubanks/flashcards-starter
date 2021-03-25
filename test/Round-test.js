@@ -41,6 +41,23 @@ describe ('Round', function() {
   it('should return the current card', function() {
     const currentCard = round.returnCurrentCard()
     expect(currentCard).to.deep.equal(card1);
+  });
+
+  it('should count the number of turns', function() {
+    round.takeTurn("object");
+    expect(round.turnCount).to.equal(1);
+  });
+
+  it('should give tally the number of correct guesses after a guess is evaluated', function() {
+    const feedback = round.takeTurn("object");
+    expect(round.correctGuesses).to.equal(1);
+    expect(feedback).to.equal('correct!');
+  });
+
+  it('should collect incorrect guesses if the guess is evaluated to false', function() {
+    const feedback = round.takeTurn("array");
+    expect(round.correctGuesses).to.equal(0);
+    expect(round.incorrectGuesses.length).to.equal(1);
   })
 
 

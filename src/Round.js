@@ -21,14 +21,15 @@ class Round {
     // and stores ids of incorrect guesses
 
     const turn = new Turn(guess, this.currentCard)
+    let feedback
     this.turnCount+=1
 
     if (turn.evaluateGuess()) {
       this.correctGuesses+=1
-      let feedback = turn.giveFeedback();
+      feedback = turn.giveFeedback();
     } else {
       this.incorrectGuesses.push(this.currentCard.id);
-      let feedback = turn.giveFeedback();
+      feedback = turn.giveFeedback();
     }
 
     this.currentCard = this.deck.card[this.turnCount];
