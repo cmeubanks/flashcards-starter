@@ -8,7 +8,6 @@ describe('Card', function() {
 
   beforeEach(function() {
     card = new Card(1, 'Which country produces the most coffee in the world?', ['Brazil', 'Columbia', 'Argentina'], 'Brazil');
-
   });
 
   it('should be a function', function() {
