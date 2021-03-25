@@ -58,18 +58,30 @@ describe ('Round', function() {
     const feedback = round.takeTurn("array");
     expect(round.correctGuesses).to.equal(0);
     expect(round.incorrectGuesses.length).to.equal(1);
-  })
+    expect(feedback).to.equal('incorrect!');
+  });
 
   it('should update the current card for a new turn', function() {
     round.takeTurn("object");
-    expect(round.currentCard.id).to.equal(2)
-  })
+    expect(round.currentCard.id).to.equal(2);
+  });
 
+  it('should return the percent of correct guesses', function() {
+    round.takeTurn("object");
+    round.takeTurn("array");
+    let percent = round.calculatePercentCorrect();
+    expect(percent).to.equal(100);
+    round.takeTurn("object")
+    percent = round.calculatePercentCorrect();
+    expect(percent).to.equal(67);
 
-  // it('should create a new Turn instance when a user takes a turn', function() {
-  //   const turn = round.takeTurn();
-  //   expect(turn).to.be.an.instanceof(Turn);
-  // })
+  });
 
-
-})
+  it('returns a statement at the end of each round', function() {
+    round.takeTurn("object");
+    round.takeTurn("array");
+    const percent = round.calculatePercentCorrect();
+    const endRound = round.endRound();
+    expect(endRound).to.equal(`**Round over!You answered${percent}% of the questions correctly!`);
+  });
+});
