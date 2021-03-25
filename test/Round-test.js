@@ -28,11 +28,27 @@ describe ('Round', function() {
 
   it('should have a property that is the deck', function() {
     expect(round.deck).to.equal(deck);
-  })
+  });
+
+  it('should have a turn count property with a default value', function() {
+    expect(round.turnCount).to.equal(0);
+  });
+
+  it('should have an incorrect guesses property with a default array value', function() {
+    expect(round.incorrectGuesses).to.deep.equal([]);
+  });
 
   it('should return the current card', function() {
-    expect(round.returnCurrentCard()).to.deep.equal(card1);
+    const currentCard = round.returnCurrentCard()
+    expect(currentCard).to.deep.equal(card1);
   })
+
+
+
+  // it('should create a new Turn instance when a user takes a turn', function() {
+  //   const turn = round.takeTurn();
+  //   expect(turn).to.be.an.instanceof(Turn);
+  // })
 
 
 })
