@@ -2,6 +2,8 @@ const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const Card = require('../src/Card.js');
+const Deck = require('../src/Deck.js');
+const Round = require('../src/Round.js');
 
 class Game {
   constructor() {
@@ -10,10 +12,16 @@ class Game {
 
   startGame() {
     let cards = [];
-    prototypeData.forEach(element => {
+    prototypeQuestions.forEach(element => {
       const card = new Card(element.id, element.question, element.answers, element.correctAnswer);
       cards.push(card);
-    })
+    });
+
+    let deck = new Deck(cards);
+    this.currentRound = new Round(deck);
+
+    this.printMessage(deck, round);
+    this.printQuestion(round);
   }
 
   printMessage(deck, round) {
