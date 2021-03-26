@@ -17,10 +17,10 @@ class Round {
   takeTurn(guess) {
     const turn = new Turn(guess, this.currentCard)
     let feedback
-    this.turnCount+=1
+    this.turnCount += 1
 
     if (turn.evaluateGuess()) {
-      this.correctGuesses+=1
+      this.correctGuesses += 1
       feedback = turn.giveFeedback();
     } else {
       this.incorrectGuesses.push(this.currentCard.id);

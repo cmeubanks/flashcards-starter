@@ -5,7 +5,7 @@ class Card {
     this.answers = answers;
     this.correctAnswer = correctAnswer;
   }
-};
+}
 
 
 
