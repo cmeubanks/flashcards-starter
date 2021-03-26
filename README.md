@@ -7,7 +7,7 @@ Got a big test or interview coming up? Check out the flashcards application! Thi
 ![](https://media.giphy.com/media/SkKQuWyBVqADrvJQ45/giphy.gif)
 
 ### How to Play/Learn
-- Clone down this repository git@github.com:cmeubanks/flashcards-starter.git
+- Clone down this repository > git@github.com:cmeubanks/flashcards-starter.git
 - enter **node index.js** to start the game
 
 ******************************************************************
