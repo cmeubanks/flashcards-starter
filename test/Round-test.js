@@ -80,6 +80,6 @@ describe ('Round', function() {
     round.takeTurn("China");
     const percent = round.calculatePercentCorrect();
     const endRound = round.endRound();
-    expect(endRound).to.equal(`**Round over!You answered${percent}% of the questions correctly!`);
+    expect(endRound).to.equal(`**Round over!** You answered ${percent}% of the questions correctly!`);
   });
 });
